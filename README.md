@@ -37,7 +37,7 @@ Example Playbook
       vars:
         source_ip: 192.168.0.10
         destination_ip: 192.168.0.11
-        ansible_network_os: checkpoint
+        firewall_provider: checkpoint
 ```
 
 * `Cisco FTD unblock Network address`
@@ -55,7 +55,7 @@ Example Playbook
         unblock_name: permit_network
         unblock_subtype: NETWORK
         unblock_value: 192.168.1.0/24
-        ansible_network_os: cisco_ftd
+        firewall_provider: cisco_ftd
 ```
 
 * `Cisco FTD block Network address`
@@ -73,7 +73,7 @@ Example Playbook
         block_name: block_network
         block_subtype: NETWORK
         block_value: 192.168.2.0/24
-        ansible_network_os: cisco_ftd
+        firewall_provider: cisco_ftd
 ```
 
 * `Cisco FTD unblock URL address`
@@ -92,7 +92,7 @@ Example Playbook
         unblock_url_description: URL for Google
         unblock_url: www.google.com
 
-        ansible_network_os: cisco_ftd
+        firewall_provider: cisco_ftd
 ```
 
 * `Cisco FTD block URL address`
@@ -110,7 +110,7 @@ Example Playbook
         block_name: Attacker_Url
         block_url_description: Detected Attacker URL
         block_url: www.attacker.com
-        ansible_network_os: cisco_ftd
+        firewall_provider: cisco_ftd
 ```
 
 * `FortiOS block IP address`
@@ -124,6 +124,7 @@ Example Playbook
         name: acl_manager
         tasks_from: block_ip
       vars:
+        firewall_provider: fortios
         policy_id: 10
         policy_name: block_ip_test_example_policy
         source_interface: any
